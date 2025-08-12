@@ -1,11 +1,11 @@
 meta {
-  name: obtener todos los customers
+  name: traer el customer por id
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
   url: http://localhost:3010/customers
-  body: none
+  body: json
   auth: none
 }

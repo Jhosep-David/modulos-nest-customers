@@ -1,0 +1,22 @@
+meta {
+  name: crear customer
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3010/categorias
+  body: json
+  auth: none
+}
+
+body:json {
+  
+  {
+    "id": 5,
+    "firstName": "ruby",
+    "lastName": "Cardenas",
+    "birthDate": "2010-10-10",
+    "isActive": true
+  }
+}

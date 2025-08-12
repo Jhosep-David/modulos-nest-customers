@@ -1,24 +1,25 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCustomerDto } from './dto/create-customer.dto';
-import { UpdateCustomerDto } from './dto/update-customer.dto';
-import { Customer } from './entities/customer.entity'
+import { CreateCategoriaDto } from './dto/create-categoria.dto';
+import { UpdateCategoriaDto } from './dto/update-categoria.dto';
+import { Categoria } from './entities/categoria.entity'
+
 
 @Injectable()
-export class CustomersService {
-
+export class CategoriasService {
+  
   //Datos de customers 
   //Private: solo se puede usar 
   //al interior de la clase 
-  private clientes : Customer[] = [
+  private categorias : Categoria[] = [
     //se usan los campos que tiene el constructor
-    new Customer(1, "Cristian", "Buitrago"),
-    new Customer(2, "Ana", "Rivera"),
-    new Customer(3, "Wendy", "Garcia")
+    new Categoria(1, 1, "familia", true, "familia" ),
+    new Categoria(2, 1, "familia", true, "familia" ),
+    new Categoria(3, 1, "familia", true, "familia" ),
 
   ]
 
   create(nuevoCliente){
-    this.clientes.push(nuevoCliente);
+    this.categorias.push(nuevoCliente);
     return nuevoCliente;
   } 
 
@@ -36,7 +37,7 @@ export class CustomersService {
 
   findAll() {
     // return `This action returns all customers`;
-    return this.clientes;
+    return this.categorias;
   }
 
   //tiene URL PARAMETERS
@@ -44,24 +45,25 @@ export class CustomersService {
     //return `This action returns a #${id} customer`;
     //el c es cada elmento de lo que va a guardar del arreglo 
     //lo tipamos como Customer para que nos pase todos los atributos de Customer
-    let customerABuscar = this.clientes.find(function(c: Customer){
+    let customerABuscar = this.categorias.find(function(c: Categoria){
       return c.id === id 
     })
     //retornar el customer que buscamos 
     return customerABuscar;
   }
 
-  update(id: number, updateCustomerDto: UpdateCustomerDto) {
-    return `This action updates a #${id} customer`;
+  update(id: number, updateCategoriaDto: UpdateCategoriaDto) {
+    return `This action updates a #${id} categoria`;
   }
 
   remove(id: number) {
     // para retornar un nuevo arreglo (lista)
     //cuyos elementos cumplan con la condicion 
-    this.clientes = this.clientes.filter(function(cliente){
-      return cliente.id !== id 
+    this.categorias = this.categorias.filter(function(Categoria){
+      return Categoria.id !== id 
     });
-    return `cliente con id: ${id} eliminado`
-    // return `This action removes a #${id} customer`;
+    return `categoria con id: ${id} eliminado`
    }
+  
+  
 }
