@@ -13,7 +13,7 @@ import { IsNotEmpty, MinLength } from "class-validator";
 
 export class CreateRoleDto {
     @IsNotEmpty({message : "Debe de estar presente el nombre del rol"})
-    @MinLength(7, 
-                {message : "rol debe tener minimo de 7 caracteres"})
+    @MinLength(5, 
+                {message : "rol debe tener minimo de 5 caracteres"})
     nombre: string;
 }
